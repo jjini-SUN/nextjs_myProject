@@ -1,0 +1,28 @@
+.write-bg {
+
+}
+
+.input-container {
+    display:flex;
+    flex-direction: column;
+    gap:15px;
+    margin:20px 0;
+}
+.input-title {
+    /* width:200px; */
+    padding:10px;
+}
+.input-content {
+    padding:10px;
+    height:500px;
+}
+.input-container button {
+    width:90px;
+    background:rgb(252,117,98);
+    padding:5px 10px;
+    color:white;
+    border-radius: 5px;
+    position: relative;
+    right:0;
+    margin:auto 0 0 auto;
+}

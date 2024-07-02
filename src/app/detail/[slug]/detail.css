@@ -1,0 +1,13 @@
+.detail-item {
+
+}
+.detail-item h2 {
+    margin:20px 0;
+}
+.detail-item p {
+    margin-bottom:20px;
+}
+.detail-item img {
+    width: 400px;
+    border-radius: 20px;
+}
