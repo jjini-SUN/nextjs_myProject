@@ -33,9 +33,10 @@
     border-radius: 45%;
     box-shadow: 5px 10px 20px 2px pink;
     margin:2rem;
+    opacity: 70%;
 }
 .list-item img:hover {
-    width:350px;
+    opacity: 100%;
 }
 
 .write-btn {

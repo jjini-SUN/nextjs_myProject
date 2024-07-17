@@ -19,7 +19,7 @@ a {
     padding:2rem;
 }
 .logo {
-    font-size: 40px;
+    font-size: 44px;
     color:orange;
     text-shadow: -1px 0 grey, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
@@ -32,13 +32,15 @@ a {
 .logo-font {
     font-family: 'LOTTERIACHAB', sans-serif;
 }
-.nav-info {
+.user-about {
+    display:flex;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+}
+.nav-list {
     display:flex;
     gap:2rem;
     color:#7b7979;
     font-size: 20px;
     font-weight: bold;
-}
-.nav-info Link {
-    background: green;
 }
