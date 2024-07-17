@@ -1,6 +1,8 @@
 'use client'
+// 'use client'가 적혀 있어야 onClick, useState 등 사용 가능
 import Link from "next/link";
 import { useState } from "react"
+import './list.css';
 
 export default function ListItem({data}) {
     const [listData, setListData] = useState(data);
