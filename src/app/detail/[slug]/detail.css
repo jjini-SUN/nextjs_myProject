@@ -11,3 +11,7 @@
     width: 400px;
     border-radius: 20px;
 }
+.detail-write {
+    display:flex;
+    gap:1rem;
+}

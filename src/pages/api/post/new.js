@@ -4,6 +4,8 @@
 // import fs from 'fs';
 // import path from 'path';
 import { connectDB } from "@/util/db";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../auth/[...nextauth]";
 
 // export const config = {
 //     api: {
@@ -14,16 +16,23 @@ import { connectDB } from "@/util/db";
 export default async function writeHandler(req, res) {
     // POST요청은 body라는 곳에 데이터를 담아보냄 (req.body에 input으로 입력한 것들이 있음) 
     // console.log(req.body);   
+
+    let session = await getServerSession(req, res, authOptions); // 로그인 정보
+
     if(req.method == 'POST') {
         // body에 담긴 값들을 꺼내고 비어있지 않으면 mongoDB에 insertOne으로 입력
 
         let {title, content} = req.body;
+        if(session) {
+            req.body.email = session.user?.email;
+        }
 
-        if(title && content) { // 비어있지 않으면
+        if(title && content && req.body.email) { // 비어있지 않으면
             try{
+                const email = req.body.email;
                 const db = (await connectDB).db('mydb');
-                let result = await db.collection('post').insertOne({title, content});
-                return res.redirect(302, '/list'); //끝나면 /list 페이지로 이동
+                let result = await db.collection('post').insertOne({title, content, email});
+                return res.redirect(302, '/community'); //끝나면 /community 페이지로 이동
             }catch(error) { // error가 발생했을 경우, 이를 해결할 코드를 적음
                 console.log('Database Error: ', error);
                 return res.status(500).json({error: '서버기능 오류'});
