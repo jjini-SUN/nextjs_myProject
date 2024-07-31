@@ -10,6 +10,7 @@ import { ObjectId } from "mongodb";
 import './detail.css';
 import Link from "next/link";
 import DetailItem from "../DetailItem";
+import Comment from "@/app/components/comment/comment";
 
 // 어떤 항목에 대해 열린 페이지인지 알아야 상세내용을 보여줌
 // URL 마다 다른 내용이 보여야 하기 때문에 {params}로 매개변수를 받는다
@@ -32,6 +33,9 @@ export default async function Detail({params}) {
             <div className="detail-write">
                 <DetailItem slug={params.slug} result={result}/>
             </div>
+
+            <br/>
+            <Comment boardId={result?._id.toString()}/>
         </div>
     )
 }
